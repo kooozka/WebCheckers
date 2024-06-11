@@ -1,0 +1,122 @@
+body {
+  background-color: #303030;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 60px);
+  grid-template-rows: repeat(8, 60px);
+  gap: 2px;
+  margin: 20px auto;
+  width: max-content;
+}
+
+.square {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.black-square {
+  background-color: #769656;
+}
+
+.white-square {
+  background-color: #eeeed2;
+}
+
+.piece {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.black-piece {
+  background-color: black;
+}
+
+.white-piece {
+  background-color: white;
+  border: 1px solid black;
+}
+
+.selected {
+  background-color: rgb(12, 85, 12);
+}
+
+.possible-move {
+  background-color: rgba(0, 255, 0, 0.5); /* Przezroczysty zielony kolor */
+}
+
+.black-king, .white-king {
+  position: relative;
+}
+
+.black-king::before, .white-king::before {
+  content: '';
+  width: 80%;
+  height: 80%;
+  background-color: gold;
+  border-radius: 50%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 1;
+}
+
+.black-king {
+  background-color: #000;
+}
+
+.white-king {
+  background-color: #fff;
+}
+
+.game-controls {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.game-input {
+  width: calc(100% - 20px);
+  margin-bottom: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.game-button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background: #444;
+  color: #fff;
+  cursor: pointer;
+}
+
+.game-button:hover {
+  background: #555;
+}
