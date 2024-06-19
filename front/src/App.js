@@ -5,6 +5,9 @@ import { initialBoard } from './utils/board';
 import Board from './components/Board';
 import GameControls from './components/GameControls';
 import { createGame, connectToRandom, movePiece } from './services/gameService.js';
+import Public from "./components/Public";
+import Protected from "./components/Protected";
+import useAuth from "./hooks/useAuth";
 
 let client = null;
 
@@ -212,7 +215,8 @@ function App() {
     setCurrentTurn(game.currentTurn);
   };
 
-  return (
+  const isLogin = useAuth();
+  return isLogin ? (
     <div className="App">
       <div className="container">
         <GameControls
@@ -233,7 +237,7 @@ function App() {
         </div>
       </div>
     </div>
-  );
+  ):<Public></Public>;
 }
 
 export default App;
