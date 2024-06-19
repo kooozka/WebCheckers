@@ -1,7 +1,7 @@
 import React from "react";
 
 const Public = () => {
-    return <div>Public</div>;
+    return <div>Please log in...</div>;
 }
 
 export default Public;

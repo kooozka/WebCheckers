@@ -8,7 +8,8 @@ const GameControls = ({
   handleCreateGame,
   handleConnectToRandom
 }) => {
-  return (
+
+    return (
     <div className="game-controls">
       <h1>Gra w Warcaby</h1>
       <input
@@ -18,6 +19,7 @@ const GameControls = ({
         value={login}
         onChange={handleLoginChange}
         className="game-input"
+        disabled={true}
       />
       <input
         type="text"

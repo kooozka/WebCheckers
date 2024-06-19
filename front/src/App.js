@@ -215,12 +215,14 @@ function App() {
     setCurrentTurn(game.currentTurn);
   };
 
-  const isLogin = useAuth();
-  return isLogin ? (
+  const [isLogin, isUsernameSet, username] = useAuth();
+  // console.log(username)
+  if (isLogin && isUsernameSet && login==='') setLogin(username)
+  return isLogin && isUsernameSet ? (
     <div className="App">
       <div className="container">
         <GameControls
-          login={login}
+          login={username}
           gameId={gameId}
           handleLoginChange={handleLoginChange}
           handleGameIdChange={handleGameIdChange}
