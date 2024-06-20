@@ -36,7 +36,7 @@ const useAuth = () => {
     useEffect(() => {
         if (!token) return;
 
-        const publicKeyPEM = `-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtNQ28qkn5dGJ7fcVB8BTYj9MMcZepO6HkPx/JPgeGX4okWBkoGADJDQ1VDnKuGgDs6FbJhJiByNalIrZcxT1eg4z+u2Cv+F7Fr92gSQDWUz/YgGYWHGpPPpY+CIuBLCeXTeHzNeNRoLx7BUdCJrjcyRF/ruUGoRV0ceasIO3YJYWu6sDzMLoPt7v9Tft4uubaUyXxg2YG6lRhBK4vFDhcxFaKkrAJa44k4AWgedjRfcPxuQvTBc2r9ziSSykpSza2zBAmUGPgPJdrnWxgpR7uiOjRt5181FeHSfqYotZUR5NENez7AsIJefi9lpH6TcpnqlEwuicqpfHNwhvFxd5hQIDAQAB\n-----END PUBLIC KEY-----`;
+        const publicKeyPEM = `-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmhfUFDgBnBquXiui+uv7dPlSZpPMYAiRXTgLdqS+wFX2hadTRFSiyxFEfwun5oPHwIk9GKmKqWODnvTZtmZ+Ig6MiDLybs2uAmo6NxkFAEyD5QZl+V4O4257byDd6GrQXxhyHQVlc9Wu4JiVu99x4nnimOuru20TW33B3o1w1dtWbmAeB8aJDDqMaGscIHes+hqKpkRCjQ29kTUwGMMThJi7Mzg8S9fj/J5D+fUCAmRHUzjQICKkpDNxe6Wh5feEiLOeO7RDnSwA4NUFCkgwteDzi9LVG/aOzMRnVImnFo7eePIUtqBDoTvTM/Vy5+5tmFtq5xvk6ESPz+QdIunxSQIDAQAB\n-----END PUBLIC KEY-----`;
 
         const decodeToken = async () => {
             try {
