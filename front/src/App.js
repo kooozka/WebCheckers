@@ -5,8 +5,7 @@ import { initialBoard } from './utils/board';
 import Board from './components/Board';
 import GameControls from './components/GameControls';
 import { createGame, connectToRandom, movePiece } from './services/gameService.js';
-import Public from "./components/Public";
-import Protected from "./components/Protected";
+import NotLogged from "./components/NotLogged";
 import useAuth from "./hooks/useAuth";
 
 let client = null;
@@ -239,7 +238,7 @@ function App() {
         </div>
       </div>
     </div>
-  ):<Public></Public>;
+  ):<NotLogged></NotLogged>;
 }
 
 export default App;

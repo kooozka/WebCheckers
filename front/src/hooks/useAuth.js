@@ -22,19 +22,21 @@ const useAuth = () => {
             realm: 'checkers',
             clientId: 'react-client',
         });
+        try{
+            client.init({ onLoad: "login-required" }).then((res) => {
+                setLogin(res);
+                setToken(client.token);
+            });
+        }catch (error){
+            console.error(error);
+        }
 
-        client.init({ onLoad: "login-required" }).then((res) => {
-            setLogin(res);
-            setToken(client.token);
-        });
     }, []);
 
     useEffect(() => {
         if (!token) return;
-        // if (isRunToken.current) return;
-        // isRunToken.current = true;
 
-        const publicKeyPEM = `-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0Ls+NVT5q23OVExuDZCArx9DZbIccrPawxh+Y/GCU9Ot+HSkzQKlgpIwU1EtDC1XqKFbYOEa7lZXy1n5sIOlGlif7NX5XqdJs6pw8+tUXmWyx90WcVqUwJjmabkrfapb+hpjk1rdn2/s+WZdo42dpRBSmV1p04JPniynYT9/Vbm5op9osGI80Snexg+XNjeTvqwUopY0rke0Lu/IzL5eeGxA9RwtHpqZBJVCHFbJ/H+k6hzdk6dNQmeR63TP2widdSDAso3pjg3Aql438nGRlJsSpXnWuVQOjaZW1d9NC36NZYN13Rcbyq45AJu4CIla1KC/PhkNY8eq6vH9IEb7kwIDAQAB\n-----END PUBLIC KEY-----`;
+        const publicKeyPEM = `-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtNQ28qkn5dGJ7fcVB8BTYj9MMcZepO6HkPx/JPgeGX4okWBkoGADJDQ1VDnKuGgDs6FbJhJiByNalIrZcxT1eg4z+u2Cv+F7Fr92gSQDWUz/YgGYWHGpPPpY+CIuBLCeXTeHzNeNRoLx7BUdCJrjcyRF/ruUGoRV0ceasIO3YJYWu6sDzMLoPt7v9Tft4uubaUyXxg2YG6lRhBK4vFDhcxFaKkrAJa44k4AWgedjRfcPxuQvTBc2r9ziSSykpSza2zBAmUGPgPJdrnWxgpR7uiOjRt5181FeHSfqYotZUR5NENez7AsIJefi9lpH6TcpnqlEwuicqpfHNwhvFxd5hQIDAQAB\n-----END PUBLIC KEY-----`;
 
         const decodeToken = async () => {
             try {
@@ -46,7 +48,8 @@ const useAuth = () => {
 
                 // Set the decoded payload to state
                 console.log(payload)
-                setDecodedToken(payload);
+                // setDecodedToken(payload);
+                //here we could send the token to backend for authorization
                 console.log(payload.preferred_username);
                 setUsername(payload.preferred_username);
                 setIsUsernameSet(true)
@@ -57,13 +60,6 @@ const useAuth = () => {
 
         decodeToken();
     }, [token]);
-
-    //infinite loop or no effect
-    // if (decodedToken && username==null) {
-    //     setUsername(decodedToken.preferred_username);
-    //     console.log(username);
-    //     isRunToken.current = true;
-    // }
 
     return [isLogin, isUsernameSet, username];
 };

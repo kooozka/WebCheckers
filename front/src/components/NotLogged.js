@@ -1,8 +1,8 @@
 import React from "react";
 
-const Public = () => {
+const NotLogged = () => {
     return <div>Please log in...</div>;
 }
 
-export default Public;
+export default NotLogged;
 

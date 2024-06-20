@@ -9,8 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.koozka</groupId>
-	<artifactId>demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>checkersBackend</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
 	<name>demo</name>
 	<description>Spring Boot backend for checkers game</description>
 	<properties>
